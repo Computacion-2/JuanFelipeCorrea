@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,7 +29,7 @@ public class Commit {
     private Repository repository;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    private List<User> collaborators;
+    private User collaborators;
 }

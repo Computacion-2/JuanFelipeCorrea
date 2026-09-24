@@ -16,7 +16,7 @@ import java.util.List;
 public class PullRequest {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -32,11 +32,15 @@ public class PullRequest {
     private Timestamp createdAt;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "repository_id", nullable = false)
-    private List<Repository> repository;
+    private Repository repository;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reviewer_id")
-    private User teacher;
+    private User reviewer;
+
+    @ManyToOne
+    @JoinColumn(name="author_id")
+    private User author;
 }
