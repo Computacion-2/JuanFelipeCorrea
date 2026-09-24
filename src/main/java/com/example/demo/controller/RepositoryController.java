@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.PullRequest;
 import com.example.demo.model.Repository;
 import com.example.demo.repository.IRepositoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,4 +22,6 @@ public class RepositoryController {
     public List<Repository> findAllRepositories() {
         return repositoryRepository.findAll();
     }
+
+
 }

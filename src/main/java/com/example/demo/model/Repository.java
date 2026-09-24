@@ -38,7 +38,7 @@ public class Repository {
     private User owner;
 
     @ManyToOne
-    @JoinColumn(name="assignament_id")
+    @JoinColumn(name="assignment_id")
     private Assignment assignment;
 
 
@@ -49,10 +49,6 @@ public class Repository {
     @OneToMany(mappedBy="repository",cascade = CascadeType.ALL)
     @JsonIgnore
     List<Commit> commits;
-
-    @OneToMany(mappedBy="repository")
-    @JsonIgnore
-    List<Repository>repositories;
 
     @ManyToOne
     @JoinColumn(name = "parent_repo_id")

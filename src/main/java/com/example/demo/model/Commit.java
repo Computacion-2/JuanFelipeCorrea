@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,6 +23,17 @@ public class Commit {
 
     @Column(nullable = false)
     private String message;
+
+    @Column(name = "lines_added",nullable = false)
+    private Integer linesAdded;
+
+
+    @Column(name = "lines_deleted",nullable = false)
+    private Integer linesDeleted;
+
+    @Column(name = "commit_date",nullable = false)
+    private Timestamp commitDate ;
+
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)

@@ -35,6 +35,7 @@ public class Classroom {
     private User teacher;
 
     @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL)
+    @JsonIgnore//por si las moscas
     private List<Assignment> assignments;
 
 
